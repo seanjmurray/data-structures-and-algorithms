@@ -8,13 +8,9 @@ Write a function named greeting that takes in a string and returns the string in
 Then, write a function named speaker that takes in a string and a callback function. The speaker function should return the string in all uppercase letters only by invoking the callback.
 ------------------------------------------------------------------------------------------------ */
 
-const greeting = (word) => {
-  return word.toUpperCase();
-};
+const greeting = (word) => word.toUpperCase();
 
-const speaker = (message, callback) => {
-  return callback(message);
-};
+const speaker = (message, callback) => callback(message);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -32,12 +28,15 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr, value) => {
-  // Solution code here...
-};
+const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  let i = 0
+  while(i<times){
+    callback(arr,num);
+    i++;
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,7 +57,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let arr = []
+  availableItems.forEach(element => {
+    if(element.available){
+      arr.push(element.name);
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -76,7 +81,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let x = [];
+  arr.forEach(i =>{
+    if(i % 15 === 0){
+      x.push('Fizz Buzz');
+    }else if(i%3===0){
+      x.push('Fizz');
+    }else if(i%5===0){
+      x.push('Buzz')
+    }else{
+      x.push(i);
+    }
+  })
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
