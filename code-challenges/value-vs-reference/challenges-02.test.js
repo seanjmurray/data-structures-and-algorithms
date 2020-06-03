@@ -9,7 +9,11 @@ Write a function named raisedToTheThird that takes in an array of numbers and re
 ------------------------------------------------------------------------------------------------ */
 
 const raisedToTheThird = (arr) => {
-  // Solution code here...
+  let cubeArr = [];
+  arr.forEach(x => {
+    cubeArr.push(Math.pow(x,3));
+  });
+  return cubeArr;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,7 +97,7 @@ console.log(a) prints [1, 2, 3, 4]
 ------------------------------------------------------------------------------------------------ */
 
 const append = (arr1, arr2) => {
-  // Solution code here...
+  
 
 };
 
