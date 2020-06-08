@@ -37,14 +37,13 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templateWithJQuery = () => {
-  let temp = $('#template').html();
   starWarsPeople.forEach(person => {
-    let $temp = $(`<section>${temp}</section>`)
+    let $temp = $(`<section>${$('#template').html()}</section>`)
     $temp.find('h2').text(person.name);
     $temp.find('h3').text(person.height);
     $temp.find('p').text(person.eye_color);
     $('main').append($temp);
-  })
+  })               
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,11 +63,9 @@ const howMuchPencil = (str) => {
   let result = [];
   let x = str.length;
   result.push(str);
-  if(str.length>=1){
-    for(let i=0; i < x;i++){
-      str = str.slice(1,str.length);
-      result.push(str);
-    }
+  for(let i=0; i < x;i++){
+    str = str.slice(1,str.length);
+    result.push(str);
   }
   return result;
 };
@@ -81,13 +78,8 @@ Write a function name wordsToCharList that, given a string as input, returns a n
 For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
-const wordsToCharList = (str) => {
-  let x = [];
-  for(let i =0;i<str.length;i++){
-    x.push(str[i]);
-  }
-  return x;
-};
+const wordsToCharList = (str) => str.split('');
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -134,8 +126,7 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   recipe.ingredients.forEach(str => {
-    str = str.slice(3,str.length)
-    result.push(str.slice(str.indexOf(' ')+1,str.length))
+    result.push(str.slice(str.indexOf(' ',4)+1,str.length))
   })
   return result;
 };
@@ -184,9 +175,13 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
-};
-
+  for(let i=0;i<arr.length;i++){
+    if(arr[i]%2===0){
+      arr.splice(i--,1)
+    }
+  }
+  return arr;
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
 
@@ -202,9 +197,7 @@ removeLastCharacters('Gregor', -2) returns 'Gregor'
 removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
-const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
-};
+const removeLastCharacters = (str, numberOfCharacters) => str.slice(0,str.length-numberOfCharacters);
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -215,7 +208,10 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  if(str.indexOf(',')=== -1){return Number(str)}
+  str = str.replace(/[,]/g,'');
+  str = str.split('')
+  str.forEach(num => total = total + Number(num));
   return total;
 };
 
@@ -228,9 +224,7 @@ Write a function named removeVowels that takes in a string and returns a new str
 For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
-const removeVowels = (str) => {
-  // Solution code here...
-};
+const removeVowels = (str) => str.replace(/[aeiou]/gi,'');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
@@ -243,7 +237,10 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+  let arr = [];
+  arr.push(removeVowels(str));
+  arr.push(str.match(/[aeiou]/gi).sort().join(''));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -304,7 +301,7 @@ xdescribe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should remove the even numbers from the array', () => {
     let list = [1, 2, 3, 4, 5, 6];
     removeEvenValues(list);
@@ -317,7 +314,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should shorten the string based on the first argument', () => {
     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
@@ -333,14 +330,14 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should add up the numbers contained within the string', () => {
     expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
     expect(totalSumCSV('147')).toStrictEqual(147);
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should return the string without vowels', () => {
     expect(removeVowels('gregor')).toStrictEqual('grgr');
     expect(removeVowels('gregor').length).toStrictEqual(4);
@@ -349,7 +346,7 @@ xdescribe('Testing challenge 10', () => {
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
