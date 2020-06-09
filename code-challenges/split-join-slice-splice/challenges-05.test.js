@@ -141,7 +141,10 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(str => {
+    str = str.split();
+
+  })
   return result;
 };
 
@@ -157,7 +160,7 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+
   return result;
 };
 
