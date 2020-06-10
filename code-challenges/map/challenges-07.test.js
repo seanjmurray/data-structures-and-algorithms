@@ -19,9 +19,7 @@ let $ = createSnippetWithJQuery(`
   </ul>
 `);
 
-const addTea = () => {
-  // Solution code here...
-}
+const addTea = () => $('ul').append($('<li>tea</li>'));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -34,7 +32,11 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  let arr1 = [];
+  for(let i in arr){
+    arr1.push(Math.pow(2,arr[i]))
+  }
+  return arr1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,8 +46,12 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
-};
+  let arr1 = [];
+  arr.forEach(num =>{
+    arr1.push(Math.pow(2,num))
+  })
+  return arr1;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -53,10 +59,7 @@ CHALLENGE 4
 Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
-const mapTwoToThe = (arr) => {
-  // Solution code here...
-};
-
+const mapTwoToThe = (arr) => arr.map(num => Math.pow(2,num));
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
 
@@ -67,9 +70,7 @@ Read the MDN documentation on String.charCodeAt() if necessary.
 For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
-const charCode = (arr) => {
-  // Solution code here...
-};
+const charCode = (arr) => arr.map(char => char.charCodeAt(0))
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -81,9 +82,7 @@ If any element in the array is not a number, the resulting array should have the
 For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
-const evenOdd = (arr) => {
-  // Solution code here...
-};
+const evenOdd = (arr) => arr.map(num => num%2===0 ? 'even':'odd');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
