@@ -4,5 +4,10 @@ This is a place for my code challenges from 301 and 401. I will try to keep this
 
 ## Table of Contents
 
-- [Array reverse](./code-challenges/arrayReverse/arrayReverse.js)
+### Algorithms
+- [Array Reverse](./code-challenges/arrayReverse/arrayReverse.js)
 - [Shift Array](./code-challenges/arrayShift/array-shift.test.js) 
+- [Binary Search](./code-challenges/arrayBinarySearch/array-binary-search.js)
+
+### Data Structures
+- [Linked Lists](./data-structures/linked-list/linked-list.js)
