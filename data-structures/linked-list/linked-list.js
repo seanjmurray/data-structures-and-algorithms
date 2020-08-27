@@ -48,7 +48,14 @@ class LinkedList {
     return false;
   }
   toString(){
-
+    let currentNode = this.head;
+    let arr = [];
+    while(currentNode.next){
+      arr.push(currentNode.value)
+      currentNode = currentNode.next
+    }
+    arr.push('NULL')
+    return arr.join(' -> ');
   }
   insertBefore(value, newVal){
     const newNode = new Node(newVal);

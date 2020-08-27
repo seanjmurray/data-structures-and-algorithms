@@ -97,3 +97,12 @@ it('should insert after the value', () => {
   expect(ll.head.next.value).toBe('grapes')
   expect(ll.head.next.next.value).toBe('bananas')
 });
+it('should output a string', () => {
+  const ll = new LinkedList();
+  ll.insert('apples');
+  ll.append('bananas');
+  ll.append('cucumbers');
+  ll.append('bananas');
+  ll.append('cucumbers');
+  expect(ll.toString()).toBe('apples -> bananas -> cucumbers -> bananas -> NULL')
+})

@@ -8,6 +8,7 @@ This is a place for my code challenges from 301 and 401. I will try to keep this
 - [Array Reverse](./code-challenges/arrayReverse/arrayReverse.js)
 - [Shift Array](./code-challenges/arrayShift/array-shift.test.js) 
 - [Binary Search](./code-challenges/arrayBinarySearch/array-binary-search.js)
+- [Multi Bracket Validation](./code-challenges/multi-bracket-validation/multi-bracket-validation.js)
 
 ### Data Structures
 - [Linked Lists](./data-structures/linked-list/linked-list.js)
