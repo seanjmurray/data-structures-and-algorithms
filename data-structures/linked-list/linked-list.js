@@ -33,6 +33,7 @@ class LinkedList {
     }
     currentNode.next = newNode;
   }
+
   includes(value){
     let currentNode = this.head;
     let node = currentNode.value
@@ -47,16 +48,18 @@ class LinkedList {
     }
     return false;
   }
+
   toString(){
     let currentNode = this.head;
     let arr = [];
-    while(currentNode.next){
+    while(currentNode){
       arr.push(currentNode.value)
       currentNode = currentNode.next
     }
     arr.push('NULL')
     return arr.join(' -> ');
   }
+
   insertBefore(value, newVal){
     const newNode = new Node(newVal);
 

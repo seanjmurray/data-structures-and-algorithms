@@ -1,6 +1,7 @@
 'use strict';
 
 const LinkedList = require('./linked-list.js');
+const ZipList = require('./ziplist');
 
 it('should insantiate', () => {
   const ll = new LinkedList();
@@ -71,7 +72,6 @@ it('should insert after the value', () => {
   ll.append('bananas');
   ll.append('cucumbers');
   ll.insertAfter('bananas','grapes')
-  console.log(ll)
   expect(ll.head.next.value).toBe('bananas')
   expect(ll.head.next.next.value).toBe('grapes')
   expect(ll.head.next.next.next.value).toBe('cucumbers')
@@ -92,7 +92,6 @@ it('should insert after the value', () => {
   ll.append('bananas');
   ll.append('cucumbers');
   ll.insertAfter('apples','grapes')
-  console.log(ll)
   expect(ll.head.value).toBe('apples')
   expect(ll.head.next.value).toBe('grapes')
   expect(ll.head.next.next.value).toBe('bananas')
@@ -103,6 +102,19 @@ it('should output a string', () => {
   ll.append('bananas');
   ll.append('cucumbers');
   ll.append('bananas');
-  ll.append('cucumbers');
   expect(ll.toString()).toBe('apples -> bananas -> cucumbers -> bananas -> NULL')
+})
+
+it('should combine two lists', () => {
+  const ll1 = new LinkedList();
+  ll1.insert(1)
+  ll1.append(3)
+  ll1.append(5)
+  const ll2 = new LinkedList();
+  ll2.insert(2)
+  ll2.append(4)
+  ll2.append(6)
+  const zip = new ZipList()
+  zip.zipper(ll1,ll2)
+  expect(zip.toString()).toBe('1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL')
 })
