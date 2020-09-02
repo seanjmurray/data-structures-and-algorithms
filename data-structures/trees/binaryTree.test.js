@@ -1,7 +1,7 @@
 'use strict';
 
 const BinarySearchTree = require('./binaryTree');
-
+const fizzBuzz = require('./fizzBuzzTree')
 
 describe('Testing Challenge 15: Trees: ', () => {
 
@@ -204,3 +204,17 @@ it('should return max value', () => {
 
   expect(max).toEqual(expected);
 });
+
+it('should fizz buzz tree', () => {
+  let bt = new BinarySearchTree();
+  bt.add(1)
+  bt.add(2)
+  bt.add(3)
+  bt.add(4)
+  bt.add(5)
+  bt.add(6)
+  bt.add(15)
+  bt = fizzBuzz(bt)
+  const val = bt.preOrder()
+  console.log(val)
+})
