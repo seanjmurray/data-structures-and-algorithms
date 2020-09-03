@@ -216,5 +216,5 @@ it('should fizz buzz tree', () => {
   bt.add(15)
   bt = fizzBuzz(bt)
   const val = bt.preOrder()
-  console.log(val)
+  console.log(bt)
 })

@@ -7,6 +7,21 @@ class Node {
     this.right = right;
   }
 }
+class Queue {
+  constructor(){
+    this.front = null;
+    this.rear = null;
+    this.queue = []
+  }
+  enqueue(val){
+    this.queue.push(val)
+    this.front = this.queue[0]
+    this.rear = val
+  }
+  dequeue(){
+    return this.queue.shift()
+  }
+}
 
 
 class BinaryTree {
@@ -85,6 +100,22 @@ class BinaryTree {
       if(val > max){ max = val}
     })
     return max;
+  }
+  breadthFirst(tree) {
+    let que = new Queue()
+    let arr = []
+    que.enqueue(tree.root)
+    while(que.queue.length){
+      let front = que.dequeue()
+      arr.push(front.value)
+      if(front.left){
+        que.enqueue(front.left)
+      }
+      if(front.right){
+        que.enqueue(front.right)
+      }
+    }
+    return arr;
   }
 }
 

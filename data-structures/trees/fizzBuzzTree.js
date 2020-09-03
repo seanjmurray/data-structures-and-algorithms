@@ -5,9 +5,10 @@ function fizzBuzzTree (tree) {
 
     if(!root) { return; }
 
-    if(root %15 === 0) { 
+    if(root.value %15 === 0) { 
 
       root.value = 'fizzbuzz' ;
+      console.log(root)
 
       _preOrder(root.left);
 
@@ -15,19 +16,20 @@ function fizzBuzzTree (tree) {
 
       return;
 
-    }else if (root % 3 === 0) {
+    }else if (root.value % 3 === 0) {
 
       root.value = 'fizz';
-
+      console.log(root)
       _preOrder(root.left);
 
       _preOrder(root.right);
 
       return;
 
-    } else if(root % 5 === 0) {
+    } else if(root.value % 5 === 0) {
 
       root.value = 'buzz';
+      console.log(root)
 
       _preOrder(root.left);
 
@@ -35,11 +37,13 @@ function fizzBuzzTree (tree) {
 
       return;
 
+    } else {
+      root.value = `${root.value}`;
+      return;
     }
 
-    root.value = `${root.value}`;
 
-    return;
+    
 
   }
 
