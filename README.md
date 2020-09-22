@@ -10,6 +10,7 @@ This is a place for my code challenges from 301 and 401. I will try to keep this
 - [Binary Search](./code-challenges/arrayBinarySearch/array-binary-search.js)
 - [Multi Bracket Validation](./code-challenges/multi-bracket-validation/multi-bracket-validation.js)
 - [Insertion sort](./code-challenges/insertion/insertion-sort.js)
+- [Duplicate Words](./code-challenges/duplicateWord/duplicate-word.js)
 
 ### Data Structures
 - [Linked Lists](./data-structures/linked-list/linked-list.js)
